@@ -78,7 +78,7 @@ describe BlueBottle::CodingQuestion do
       xit 'Jack should have zero active subscriptions' do
       end
 
-      xit 'Bella Donovan should have zero customers subscribed to it' do
+      xit 'Bella Donovan should have zero active customers subscribed to it' do
       end
 
       context 'when Jack resubscribes to Bella Donovan' do
