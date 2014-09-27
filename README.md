@@ -18,7 +18,9 @@ This exercise asks you to implement a simple system to model subscribing to rece
 
 The ```coding_question_spec.rb``` file outlines in detail the expected behavior through the use of tests. That means when all the tests have expectations and pass, you're done! The test examples have been marked as pending with `xit` -- to make them active, just remove the `x` before the `it` in each example.
 
-All the files you need to implement a solution are there except for one ... you'll need to implement the `Subscription` model. However, you may edit any files in the repository to help you solve the problem. Note: do not adjust the description of each test example.
+All the files you need to implement a solution are there except for one ... you'll need to implement the `Subscription` model. However, you may edit (or add) *any* files in the repository to help you solve the problem. The one exception is that you should not need to adjust the description of each test example. The rules are open-ended on purpose. We want you to use your imagination and practical decision-making to make the tests expecations pass.
+
+The exercise should take an estimated 1-3 hours to complete.
 
 Please send your solution via email (scott@bluebottlecoffee.com) - you can zip up your cloned version of this repository. Along with the code, please include a written introduction to your solution, that explains the design and implementation decisions you made and why.
 
