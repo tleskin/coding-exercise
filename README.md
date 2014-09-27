@@ -12,7 +12,7 @@
 
 This exercise asks you to implement a simple system to model subscribing to receive a coffee. The system should support:
 
-- a customer subscribing to receive a coffee every X days
+- a customer subscribing to receive a coffee
 - a customer cancelling a coffee subscription
 - a customer pausing a coffee subscription
 
