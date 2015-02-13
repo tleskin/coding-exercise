@@ -22,6 +22,6 @@ All the files you need to implement a solution are there except for one ... you'
 
 The exercise should take an estimated 1-3 hours to complete.
 
-Please send your solution via email (scott@bluebottlecoffee.com) - you can zip up your cloned version of this repository. Along with the code, please include a written introduction to your solution, that explains the design and implementation decisions you made and why.
+Please use source control for your code and attempt to organize your solution into logical commits. Once complete, please send your a link to your solution repository via email (scott@bluebottlecoffee.com). Along with the code, please include a written introduction to your solution, that explains the design and implementation decisions you made and why.
 
 If you have any questions, want to pair with a Blue Bottle engineer, or have trouble running the specs, please let us know.
