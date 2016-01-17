@@ -16,6 +16,14 @@ module BlueBottle
       def active?
         @active
       end
+
+      def paused?
+        @active == false
+      end
+
+      def toggle_subscription
+        @active = !@active
+      end
     end
   end
 end
