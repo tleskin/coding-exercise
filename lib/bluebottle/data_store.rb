@@ -20,18 +20,24 @@ module BlueBottle
       @store[:customers] << customer
     end
 
-    def get_active_subscriptions(customer)
-      @store[:subscriptions].select do |subscription|
-        subscription.customer_id == customer.id && subscription.active?
-      end
-    end
-
     def subscriptions
       @store[:subscriptions]
     end
 
     def add_subscription(subscription)
       @store[:subscriptions] << subscription
+    end
+
+    def get_active_subscriptions(customer)
+      @store[:subscriptions].select do |subscription|
+        subscription.customer_id == customer.id && subscription.active?
+      end
+    end
+
+    def get_subscribed(coffee)
+      @store[:subscriptions].select do |subscription|
+        subscription.coffee_id == coffee.id
+      end
     end
   end
 end

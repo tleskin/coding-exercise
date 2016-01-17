@@ -35,7 +35,9 @@ describe BlueBottle::CodingQuestion do
       expect(active_subscriptions.count).to eq(1)
     end
 
-    xit 'Bella Donovan should have one customer subscribed to it' do
+    it 'Bella Donovan should have one customer subscribed to it' do
+      bella_donovan_subscriptions = store.get_subscribed(bella_donovan)
+      expect(bella_donovan_subscriptions.count).to eq(1)
     end
   end
 
