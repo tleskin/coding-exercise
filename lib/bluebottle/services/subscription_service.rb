@@ -5,7 +5,6 @@ module BlueBottle
       def initialize(data_store)
         @data_store = data_store
       end
-
     end
   end
 end
