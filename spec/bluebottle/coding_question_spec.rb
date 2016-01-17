@@ -43,17 +43,26 @@ describe BlueBottle::CodingQuestion do
 
   context 'Liv and Elijah subscribe to Hayes Valley Espresso' do
     before do
-      # Establish subscriptions here
+      store.add_subscription(BlueBottle::Models::Subscription.new(1, liv.id, hayes_valley_espresso.id))
+      store.add_subscription(BlueBottle::Models::Subscription.new(2, elijah.id, hayes_valley_espresso.id))
     end
 
-    xit 'Liv should have one active subscription' do
+    it 'Liv should have one active subscription' do
+      liv_subscriptions = store.get_active_subscriptions(liv)
+      expect(liv_subscriptions.count).to eq(1)
+      expect(liv_subscriptions.first.customer_id).to eq(liv.id)
     end
 
-    xit 'Elijah should have one active subscription' do
+    it 'Elijah should have one active subscription' do
+      elijah_subscriptions = store.get_active_subscriptions(elijah)
+      expect(elijah_subscriptions.count).to eq(1)
+      expect(elijah_subscriptions.first.customer_id).to eq(elijah.id)
     end
 
-    xit 'Hayes Valley Espresso should have two customers subscribed to it' do
-    end
+    it 'Hayes Valley Espresso should have two customers subscribed to it' do
+      hayes_valley_espresso_subscriptions = store.get_subscribed(hayes_valley_espresso)
+      expect(hayes_valley_espresso_subscriptions.count).to eq(2)
+     end
   end
 
   context 'Pausing:' do
@@ -107,7 +116,4 @@ describe BlueBottle::CodingQuestion do
       end
     end
   end
-
-
-
 end
