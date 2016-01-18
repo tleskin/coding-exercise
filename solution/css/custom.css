@@ -1,0 +1,83 @@
+@import url('http://fonts.googleapis.com/css?family=Nunito');
+
+body {
+  text-align: center;
+}
+
+.navbar {
+  background: white;
+  min-height: 65px;
+}
+
+.logo {
+  margin-top: -5%;
+  margin-left: 130%;
+}
+
+h4 {
+  font-family: Nunito;
+  font-weight: 700;
+}
+
+.nav-style {
+  font-family: Nunito;
+  text-transform: uppercase;
+    color: black !important;
+  font-weight: 700;
+}
+
+.nav-style:hover {
+  color: #01a1dd !important;
+}
+
+.footer {
+  font-family: Nunito;
+}
+
+.dark {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: black;
+}
+
+.navbar-right {
+  margin-right: 10%;
+  margin-top: 0.5%;
+}
+
+.solution-text {
+  font-weight: 300;
+  font-family: Nunito;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 2%;
+}
+
+.line-separator{
+  margin-top: 2%;
+  height:0.5px;
+  background:#D3D3D3;
+  border-bottom:0.5px solid #D3D3D3;
+}
+
+.circle {
+    border: 1px solid black;
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.circle img {
+	background-repeat: no-repeat;
+	background-position: 75%;
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+}
+
+.business-data {
+  color: white;
+}
+
+.edit-link {
+  color: red;
+}

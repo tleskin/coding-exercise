@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blue Bottle Solution</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="Brand" class="logo" src="img/logo.png">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-style" href="#description">Description</a></li>
+          <li><a class="nav-style" href="#about">About</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+      </div>
+    </nav>
+
+    <div class="description" id="description">
+      <br>
+      <h4>Description</h4>
+      <div class="solution-text">
+        <p>
+          When I started out with the code challenge, I began by looking through
+          the tests and examining the rest of the code. I noticed the
+          repo already contained models for coffees and customers, so I thought the best way
+          to proceed was to create a subscription model and have a method to add a subscription. <br><br>
+          This app reminded me of Sales Engine, which we completed at the end of
+          Module 1 at Turing. Going off what I remembered from that project,
+          I figured to be able to find all of the different
+          things that were asked, I would need to have methods to easily call that info.
+          I feel like it is sort of mimicking an app using Rails and Active Record. <br><br>
+          Initially my coffee subscription didn't have a status, but as I worked
+          through the tests, it was clear that the subscriptions
+          would need a status. It began as an @active instance variable
+          that was set to true. That would later be changed to false if the
+          subscription was paused. I got through most of the challenge with this setup,
+          but as I got towards the end, it was clear that the status for the subscription
+          would need to become more robust and be able to account for three different
+          statuses: 'active', 'paused' and 'cancelled'. <br><br>
+          The reason why I created the method toggle subscription was that I knew
+          I would need to be able to pause and unpause subscriptions. Rather than
+          creating multple methods to do so, it seemed the easist way was to have a single
+          method to change that status. This method along with the others for checking
+          if the status was active or paused and canceling a subscription was put on the model
+          since the subscription knew what its status was and should be able to change it itself.<br><br>
+          Eventually I also got to the point where I was not only checking to see
+          if a coffee was being subscribed to, but also if those subscriptions were
+          active, so I had to create two different methods to be able to account for
+          both checks. I think the place where I got a bit tripped up and had to
+          add the method was for the spec "Bella Donovan should have zero active customers subscribed to it"
+          and the next one "Bella Donovan has two subscriptions, one active, one cancelled". <br><br>
+          One other design decision that I made was for an id to be passed in when creating
+          a new subscription. Originally I wanted the Subscription model to be able
+          to set the id automatically based on the last id that was set, but
+          following some of Sandi Metz's rules, I knew that the Subscription class
+          should only know about itself.
+          To keep it simple, I decided that the id should just be passed in. <br><br>
+          One thing that I thought was stange was that when you resubscribe, it creates
+          a new subscription. Originally I was going to just use my toggle method to
+          be able to toggle the cancelled subscription to active again, but I followed the spec
+          and created a method to add a new subscription when resubscribing. This makes sense in case we ever
+          wanted to see people who cancelled a subscription for a certain coffee. <br><br>
+          The last design decision I made was to add a raise exception
+          to the cancel subscription method in the DataStore. This seemed a simple
+          way to alert the user if they were trying to cancel a paused subscription, but
+          proceed with cancelling it if it was still active. <br><br>
+          I realize I could have read through all the specs and tried to have everything setup
+          initially the way it was supposed to, but I work iteratively. Code can always be changed.<br><br>
+        </p>
+      </div>
+    </div>
+
+    <div class="line-separator"></div>
+
+    <div class="about" id="about">
+      <div class="container">
+        <div class="row text-center" id="about">
+          <div class="col-lg-12">
+            <br><br>
+            <h4>About The Candidate</h4>
+            <br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="team-member">
+              <img class="circle" src="img/tom_coffee.jpg">
+              <br><br>
+              <div class="solution-text">
+                Tom is a software engineer currently living in Colorado. He has done
+                freelance work in Rails and JavaScript and has been working for a consultancy
+                working mostly in NodeJS and AngularJS.
+                He has also worked as a journalist both in the U.S. and abroad in China and a barista.
+                I love coffee and code and would love to be a part of your team. <br><br>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="line-separator"></div>
+    <div class="footer">
+      <br><br><br>
+      <small>© 2016 <span class="dark">TOM LOVES COFFEE && CODE</span> Inc., All Rights Reserved</small>
+      <br><br>
+      <small> Design is actually... © 2016 <span class="dark">BLUE BOTTLE</span> COFFEE Inc., All Rights Reserved</small>
+      <br><br><br>
+    </div>
+  </body>
+</html>
