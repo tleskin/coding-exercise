@@ -29,7 +29,7 @@ module BlueBottle
         end
       end
 
-      def cancel_subscription
+      def cancel
         @status = 'cancelled'
       end
     end

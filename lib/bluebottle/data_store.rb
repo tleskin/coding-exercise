@@ -29,25 +29,25 @@ module BlueBottle
     end
 
     def get_active_subscriptions(customer)
-      @store[:subscriptions].select do |subscription|
+      subscriptions.select do |subscription|
         subscription.customer_id == customer.id && subscription.active?
       end
     end
 
     def get_paused_subscriptions(customer)
-      @store[:subscriptions].select do |subscription|
+      subscriptions.select do |subscription|
         subscription.customer_id == customer.id && subscription.paused?
       end
     end
 
     def get_subscribed(coffee)
-      @store[:subscriptions].select do |subscription|
+      subscriptions.select do |subscription|
         (subscription.coffee_id == coffee.id)
       end
     end
 
     def get_active_subscribed(coffee)
-      @store[:subscriptions].select do |subscription|
+      subscriptions.select do |subscription|
         (subscription.coffee_id == coffee.id) && (subscription.status == 'active')
       end
     end
@@ -57,14 +57,14 @@ module BlueBottle
     end
 
     def find_subscription(customer, coffee)
-      @store[:subscriptions].detect do |subscription|
+      subscriptions.detect do |subscription|
         (subscription.customer_id == customer.id) && (subscription.coffee_id == coffee.id)
       end
     end
 
     def cancel_subscription(customer, coffee)
       raise "You cannot cancel a paused subscription" if find_subscription(customer, coffee).status == 'paused'
-      find_subscription(customer, coffee).cancel_subscription
+      find_subscription(customer, coffee).cancel
     end
 
     def last_subscription_id(coffee)
