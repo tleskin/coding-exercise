@@ -22,11 +22,7 @@ module BlueBottle
       end
 
       def toggle_subscription
-        if @status == 'active'
-          @status = 'paused'
-        else
-          @status = 'active'
-        end
+        @status == 'active' ? @status = 'paused' : @status = 'active'
       end
 
       def cancel
