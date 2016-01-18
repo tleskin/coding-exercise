@@ -4,25 +4,33 @@ module BlueBottle
       attr_accessor :id,
                     :customer_id,
                     :coffee_id,
-                    :active
+                    :status
 
       def initialize(id, customer_id, coffee_id)
         @id = id
         @customer_id = customer_id
         @coffee_id = coffee_id
-        @active = true
+        @status = 'active'
       end
 
       def active?
-        @active
+        @status == 'active'
       end
 
       def paused?
-        @active == false
+        @status == 'paused'
       end
 
       def toggle_subscription
-        @active = !@active
+        if @status == 'active'
+          @status = 'paused'
+        else
+          @status = 'active'
+        end
+      end
+
+      def cancel_subscription
+        @status = 'cancelled'
       end
     end
   end

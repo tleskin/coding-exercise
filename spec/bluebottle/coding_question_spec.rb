@@ -86,29 +86,41 @@ describe BlueBottle::CodingQuestion do
         bella_donovan_subscriptions = store.get_subscribed(bella_donovan)
         expect(bella_donovan_subscriptions.count).to eq(1)
       end
+
+      it 'Bella Donovan should have no active subscriptions to it' do
+        bella_donovan_subscriptions = store.get_active_subscribed(bella_donovan)
+        expect(bella_donovan_subscriptions.count).to eq(0)
+      end
     end
   end
 
   context 'Cancelling:' do
     context 'when Jack cancels his subscription to Bella Donovan,' do
       before do
-        # Establish subscription here
+        store.add_subscription(BlueBottle::Models::Subscription.new(1, jack.id, bella_donovan.id))
+        store.cancel_subscription(jack, bella_donovan)
       end
 
-      xit 'Jack should have zero active subscriptions' do
+      it 'Jack should have zero active subscriptions' do
+        jack_active_subscriptions = store.get_active_subscriptions(jack)
+        expect(jack_active_subscriptions.count).to eq(0)
       end
 
-      xit 'Bella Donovan should have zero active customers subscribed to it' do
+      it 'Bella Donovan should have zero active customers subscribed to it' do
+        bella_donovan_subscriptions = store.get_active_subscribed(bella_donovan)
+        expect(bella_donovan_subscriptions.count).to eq(0)
       end
 
       context 'when Jack resubscribes to Bella Donovan' do
         before do
-          # Establish subscription here
+          store.resubscribe(jack, bella_donovan)
         end
 
-        xit 'Bella Donovan has two subscriptions, one active, one cancelled' do
+        it 'Bella Donovan has two subscriptions, one active, one cancelled' do
+          bella_donovan_subscriptions = store.get_subscribed(bella_donovan)
+          expect(bella_donovan_subscriptions.first.status).to eq('cancelled')
+          expect(bella_donovan_subscriptions.last.status).to eq('active')
         end
-
       end
     end
   end
@@ -116,10 +128,12 @@ describe BlueBottle::CodingQuestion do
   context 'Cancelling while Paused:' do
     context 'when Jack tries to cancel his paused subscription to Bella Donovan,' do
       before do
-        # Establish paused subscription here
+        store.add_subscription(BlueBottle::Models::Subscription.new(1, jack.id, bella_donovan.id))
+        store.toggle_subscription(jack, bella_donovan)
       end
 
-      xit 'Jack raises an exception preventing him from cancelling a paused subscription' do
+      it 'Jack raises an exception preventing him from cancelling a paused subscription' do
+        expect { store.cancel_subscription(jack, bella_donovan) }.to raise_error("You cannot cancel a paused subscription")
       end
     end
   end
